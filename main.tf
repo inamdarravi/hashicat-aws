@@ -10,7 +10,10 @@ terraform {
 provider "aws" {
   region  = var.region
 }
-
+module "s3-bucket" {
+  source  = "app.terraform.io/Test-ACME/s3-bucket/aws"
+  version = "2.8.0"
+}
 resource "aws_vpc" "hashicat" {
   cidr_block           = var.address_space
   enable_dns_hostnames = true

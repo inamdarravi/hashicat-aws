@@ -30,6 +30,7 @@ resource "aws_subnet" "hashicat" {
   }
 }
 
+
 resource "aws_security_group" "hashicat" {
   name = "${var.prefix}-security-group"
 
@@ -193,6 +194,7 @@ resource "tls_private_key" "hashicat" {
 
 locals {
   private_key_filename = "${var.prefix}-ssh-key.pem"
+  bucket_name = "s3-bucket"
 }
 
 resource "aws_key_pair" "hashicat" {

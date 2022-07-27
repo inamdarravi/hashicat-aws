@@ -194,7 +194,7 @@ resource "tls_private_key" "hashicat" {
 
 locals {
   private_key_filename = "${var.prefix}-ssh-key.pem"
-  bucket_name = "s3-bucket"
+  bucket_name = "s3-bucket-${random_pet.this.id}"
 }
 
 resource "aws_key_pair" "hashicat" {
